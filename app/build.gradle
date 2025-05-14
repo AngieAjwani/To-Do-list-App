@@ -1,0 +1,71 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.example.to_dolist'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.to_dolist"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+
+    // Retrofit and Gson
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    implementation "androidx.navigation:navigation-ui-ktx:2.8.8"
+
+// For internet operations
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11"
+
+    // Room components
+    implementation "androidx.room:room-runtime:2.6.1"
+    implementation libs.androidx.activity
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.navigation.fragment.ktx
+    kapt "androidx.room:room-compiler:2.6.1"
+
+// Kotlin coroutines support for Room
+    implementation "androidx.room:room-ktx:2.6.1"
+
+// Lifecycle and LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.7.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
+
+// Coroutines (for suspend functions)
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+}

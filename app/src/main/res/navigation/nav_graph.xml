@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.to_dolist.ui.home.HomeFragment"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_homeFragment_to_toDoListFragment"
+            app:destination="@id/toDoListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/toDoListFragment"
+        android:name="com.example.to_dolist.ui.task.ToDoListFragment"
+        android:label="Tasks" >
+        <action
+            android:id="@+id/action_toDoListFragment_to_addEditTaskFragment"
+            app:destination="@id/addEditTaskFragment" />
+    </fragment>
+
+    <!-- Add/Edit Task Fragment -->
+    <fragment
+        android:id="@+id/addEditTaskFragment"
+        android:name="com.example.to_dolist.ui.task.AddEditTaskFragment"
+        android:label="Add/Edit Task" />
+
+    <!-- Note List Fragment -->
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="com.example.to_dolist.ui.note.NoteListFragment"
+        android:label="Notes" >
+        <action
+            android:id="@+id/action_noteListFragment_to_addEditNoteFragment"
+            app:destination="@id/addEditNoteFragment" />
+    </fragment>
+
+    <!-- Add/Edit Note Fragment -->
+    <fragment
+        android:id="@+id/addEditNoteFragment"
+        android:name="com.example.to_dolist.ui.note.AddEditNoteFragment"
+        android:label="Add/Edit Note" />
+</navigation>
